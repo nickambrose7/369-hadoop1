@@ -10,7 +10,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class AccessLog2 {
+public class Report1b {
 
     public static final Class OUTPUT_KEY_CLASS = LongWritable.class;
     public static final Class OUTPUT_VALUE_CLASS = Text.class;

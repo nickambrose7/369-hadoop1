@@ -38,7 +38,31 @@ public class HadoopApp {
 	    job.setMapperClass(AccessLog2.MapperImpl.class);
 	    job.setOutputKeyClass(AccessLog2.OUTPUT_KEY_CLASS);
 	    job.setOutputValueClass(AccessLog2.OUTPUT_VALUE_CLASS);
-	} else {
+		} else if ("Report1".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(Report1.ReducerImpl.class);
+			job.setMapperClass(Report1.MapperImpl.class);
+			job.setOutputKeyClass(Report1.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(Report1.OUTPUT_VALUE_CLASS);
+		} 
+		else if ("Report1b".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(Report1b.ReducerImpl.class);
+			job.setMapperClass(Report1b.MapperImpl.class);
+			job.setOutputKeyClass(Report1b.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(Report1b.OUTPUT_VALUE_CLASS);
+		} 
+		else if ("Report2".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(Report2.ReducerImpl.class);
+			job.setMapperClass(Report2.MapperImpl.class);
+			job.setOutputKeyClass(Report2.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(Report2.OUTPUT_VALUE_CLASS);
+		} 
+		else if ("Report2b".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(Report2b.ReducerImpl.class);
+			job.setMapperClass(Report2b.MapperImpl.class);
+			job.setOutputKeyClass(Report2b.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(Report2b.OUTPUT_VALUE_CLASS);
+		} 
+		else {
 	    System.out.println("Unrecognized job: " + otherArgs[0]);
 	    System.exit(-1);
 	}

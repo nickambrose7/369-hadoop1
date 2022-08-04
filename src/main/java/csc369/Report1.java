@@ -10,26 +10,25 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class WordCount {
+public class Report1 {
 
-    public static final Class OUTPUT_KEY_CLASS = Text.class; // change these?
+    public static final Class OUTPUT_KEY_CLASS = Text.class;
     public static final Class OUTPUT_VALUE_CLASS = IntWritable.class;
 
-    public static class MapperImpl extends Mapper<LongWritable, Text, Text, IntWritable> { // change this part? first two in, second two out
+    public static class MapperImpl extends Mapper<LongWritable, Text, Text, IntWritable> {
 	private final IntWritable one = new IntWritable(1);
 	private Text word = new Text();
 
         @Override
 	protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-            StringTokenizer itr = new StringTokenizer(value.toString());
-            while (itr.hasMoreTokens()) {
-                word.set(itr.nextToken().replaceAll("[\\W]", ""));  // ignore whitespace and punctuation
-                context.write(word, one);
-            }
+            String[] sa = value.toString().split(" "); // Split our value based on spaces.
+            Text url = new Text();
+            url.set(sa[6]); // after the split url should be at spot 6
+            context.write(url, one);
         }
     }
 
-    public static class ReducerImpl extends Reducer<Text, IntWritable, Text, IntWritable> {// change this part? first two in, second two out
+    public static class ReducerImpl extends Reducer<Text, IntWritable, Text, IntWritable> {
 	private IntWritable result = new IntWritable();
     
         @Override
@@ -41,7 +40,7 @@ public class WordCount {
                 sum  += itr.next().get();
             }
             result.set(sum);
-            context.write(word, result);
+            context.write(word, result); // (URL, how man times we see our url)
        }
     }
 
