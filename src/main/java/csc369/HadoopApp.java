@@ -62,6 +62,48 @@ public class HadoopApp {
 			job.setOutputKeyClass(Report2b.OUTPUT_KEY_CLASS);
 			job.setOutputValueClass(Report2b.OUTPUT_VALUE_CLASS);
 		} 
+		else if ("Report3".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(Report3.ReducerImpl.class);
+			job.setMapperClass(Report3.MapperImpl.class);
+			job.setOutputKeyClass(Report3.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(Report3.OUTPUT_VALUE_CLASS);
+		}
+		else if ("Report4".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(Report4.ReducerImpl.class);
+			job.setMapperClass(Report4.MapperImpl.class);
+			job.setOutputKeyClass(Report4.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(Report4.OUTPUT_VALUE_CLASS);
+		}
+		else if ("Report4b".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(Report4b.ReducerImpl.class);
+			job.setMapperClass(Report4b.MapperImpl.class);
+			job.setOutputKeyClass(Report4b.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(Report4b.OUTPUT_VALUE_CLASS);
+		}
+		else if ("Report5".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(Report5.ReducerImpl.class);
+			job.setMapperClass(Report5.MapperImpl.class);
+			job.setOutputKeyClass(Report5.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(Report5.OUTPUT_VALUE_CLASS);
+		}
+		else if ("Report5b".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(Report5b.ReducerImpl.class);
+			job.setMapperClass(Report5b.MapperImpl.class);
+			job.setOutputKeyClass(Report5b.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(Report5b.OUTPUT_VALUE_CLASS);
+		}
+		else if ("Report6".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(Report6.ReducerImpl.class);
+			job.setMapperClass(Report6.MapperImpl.class);
+			job.setOutputKeyClass(Report6.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(Report6.OUTPUT_VALUE_CLASS);
+		}
+		else if ("Report6b".equalsIgnoreCase(otherArgs[0])) {
+			job.setReducerClass(Report6b.ReducerImpl.class);
+			job.setMapperClass(Report6b.MapperImpl.class);
+			job.setOutputKeyClass(Report6b.OUTPUT_KEY_CLASS);
+			job.setOutputValueClass(Report6b.OUTPUT_VALUE_CLASS);
+		}
 		else {
 	    System.out.println("Unrecognized job: " + otherArgs[0]);
 	    System.exit(-1);
