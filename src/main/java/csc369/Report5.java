@@ -21,8 +21,6 @@ public class Report5 {
         @Override
 	protected void map(LongWritable key, Text value,
 			   Context context) throws IOException, InterruptedException {
-        /* this function takes as input each line of our access.log file and emits (hostname, 1) for each line.
-        Need to understand that the map function is called separatly on each line in our file. */
 	    String[] sa = value.toString().split(" "); // Split our value based on spaces.
 	    IntWritable year = new IntWritable();
 	    IntWritable month = new IntWritable();
@@ -74,9 +72,9 @@ public class Report5 {
     //my result to be a different type.
     
         @Override
-	protected void reduce(IntWritable hostname, Iterable<IntWritable> intOne,
+	protected void reduce(IntWritable m_or_y, Iterable<IntWritable> intOne,
 			      Context context) throws IOException, InterruptedException {
-        /* This funcition takes a given hostname and a list of 1's for each time the hostname occured. */
+        /* This funcition takes a given month/year and a list of 1's for each time the hostname occured. */
             int sum = 0;
             Iterator<IntWritable> itr = intOne.iterator();
         
@@ -84,7 +82,7 @@ public class Report5 {
                 sum  += itr.next().get(); // add up all the ones.
             }
             result.set(sum);
-            context.write(hostname, result); // emit the hostname and amount of times it occurs.
+            context.write(m_or_y, result); 
             // output file will be tab delimited.
        }
     }
