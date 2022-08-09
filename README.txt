@@ -22,4 +22,10 @@ Like usual, the second job is used for sorting.
 
 Report 5:
 In the job 1 map phase, I translate the name of the month to a number so that I can sort 
-chronologically in my second job. Otherwise nothing special here. 
+chronologically in my second job. Otherwise nothing special here. Test this using
+input_access_log4 so that you can see it works with mulitple months and years.
+
+Report 6:
+This is another easy one, just emit the day and number of bytes on that day from
+our first map function, and add it all up in our reducer. Sorting is the same
+as always.
